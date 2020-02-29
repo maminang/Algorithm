@@ -15,7 +15,7 @@ public class GenericQueue<E> {
 	}
 
 	public void enqueue(E e) throws QueueOverflowException {
-		if (size >= capacity) {
+		if (isFull()) {
 			throw new QueueOverflowException();
 		} else {
 			queue[rear++] = e;
@@ -27,7 +27,7 @@ public class GenericQueue<E> {
 	}
 
 	public E dequeue() throws EmptyQueueException {
-		if (size <= 0) {
+		if (isEmpty()) {
 			throw new EmptyQueueException();
 		} else {
 			E e = queue[front++];
@@ -40,7 +40,7 @@ public class GenericQueue<E> {
 	}
 
 	public E peek() throws EmptyQueueException {
-		if (size <= 0) {
+		if (isEmpty()) {
 			throw new EmptyQueueException();
 		} else {
 			return queue[front];
@@ -65,11 +65,11 @@ public class GenericQueue<E> {
 	}
 
 	public boolean isEmpty() {
-		return size <= 0 ? true : false;
+		return size <= 0;
 	}
 
 	public boolean isFull() {
-		return size >= capacity ? true : false;
+		return size >= capacity;
 	}
 
 	public void dump() {
