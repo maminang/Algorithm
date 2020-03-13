@@ -3,24 +3,11 @@ package programmers;
 import java.util.LinkedList;
 import java.util.Queue;
 
-// 단어 변환 로직 :: bfs
-// 그래프인데 이전단어 제외를 굳이 해야될정돈가?
-// 큐를 이용하여 로직짜면 될듯
-
 public class WordConversion
 {
 
-    public static void main(String[] args)
+    class Solution
     {
-        Solution sol = new Solution();
-        String[] words = { "hot", "dot", "dog", "lot", "log", "cog" };
-        int result = sol.solution("hit", "cog", words);
-        System.out.println(result);
-    }
-
-    static class Solution
-    {
-        // 큐를 이용하여 bfs 돌리는 로직 만들어야 함
         public int solution(String begin, String target, String[] words)
         {
             Queue<String> que = new LinkedList<String>();
@@ -48,7 +35,7 @@ public class WordConversion
                         {
                             if(target.equals(finalTarget))
                             {
-                                return depth;
+                                return depth + 1;
                             }
                             else
                             {

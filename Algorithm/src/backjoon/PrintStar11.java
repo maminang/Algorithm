@@ -9,8 +9,8 @@ public class PrintStar11 // 2448
     public static void main(String[] args)
     {
         int n = sc.nextInt();
-        
+        System.out.println(n);
     }
-    
-    
+
+
 }
