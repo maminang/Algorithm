@@ -1,15 +1,20 @@
 package programmers;
 
-public class Hash2 {
-	public boolean solution(String[] phone_book) {
-		for (int i = 0; i < phone_book.length; i++) {
-			for (int j = 0; j < phone_book.length; j++) {
-				if (i != j && phone_book[i].startsWith(phone_book[j])) {
-					return false;
-				}
-			}
-		}
+public class Hash2
+{
 
-		return true;
-	}
+    @SuppressWarnings("unused")
+    public static void main(String[] args)
+    {
+        String[] phone_book1 = new String[] { "119", "97674223", "1195524421" };
+        String[] phone_book2 = new String[] { "123", "456", "789" };
+        String[] phone_book3 = new String[] { "12", "123", "1235", "567", "88" };
+    }
+
+    static boolean solution(String[] phone_book)
+    {
+        boolean answer = true;
+        return answer;
+    }
+
 }

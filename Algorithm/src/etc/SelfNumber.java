@@ -1,32 +1,32 @@
 package etc;
 
 public class SelfNumber {
-	public static void main(String[] args) {
-		for (int i = 1; i <= 10000; i++) {
-			if (isSelfNumber(i)) {
-				System.out.println(i);
-			}
-		}
+    public static void main(String[] args) {
+        for (int i = 1; i <= 10000; i++) {
+            if (isSelfNumber(i)) {
+                System.out.println(i);
+            }
+        }
 
-	}
+    }
 
-	public static int d(int n) { // generator¸¦ String ¾È ¾²°í ÇÏ´Â¹ý
-		int generated = n;
+    private static int d(int n) { // generatorï¿½ï¿½ String ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ï´Â¹ï¿½
+        int generated = n;
 
-		while (n != 0) {
-			generated += n % 10;
-			n /= 10;
-		}
+        while (n != 0) {
+            generated += n % 10;
+            n /= 10;
+        }
 
-		return generated;
-	}
+        return generated;
+    }
 
-	public static boolean isSelfNumber(int n) {
-		for (int i = 0; i < n; i++) {
-			if (d(i) == n) {
-				return false;
-			}
-		}
-		return true;
-	}
+    public static boolean isSelfNumber(int n) {
+        for (int i = 0; i < n; i++) {
+            if (d(i) == n) {
+                return false;
+            }
+        }
+        return true;
+    }
 }
