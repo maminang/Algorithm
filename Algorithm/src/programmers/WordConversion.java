@@ -12,13 +12,13 @@ public class WordConversion
         {
             Queue<String> que = new LinkedList<String>();
             que.add(begin);
-            return wordConversion(target, words, que, 0, words.length);
+            return wordConversion(target, words, que, 0);
         }
 
         // bfs(using queue)
-        private int wordConversion(String finalTarget, String[] words, Queue<String> que, int depth, int escapeDepth)
+        private int wordConversion(String finalTarget, String[] words, Queue<String> que, int depth)
         {
-            if(depth == escapeDepth)
+            if(depth == words.length)
             {
                 return 0;
             }
@@ -44,7 +44,7 @@ public class WordConversion
                         }
                     }
                 }
-                return wordConversion(finalTarget, words, que, depth + 1, escapeDepth);
+                return wordConversion(finalTarget, words, que, depth + 1);
             }
         }
 
