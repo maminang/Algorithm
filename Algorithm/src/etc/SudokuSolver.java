@@ -8,24 +8,19 @@ public class SudokuSolver {
 	static HashMap<Integer, int[]> blankMap = new HashMap<Integer, int[]>();
 
 	public static void main(String[] args) {
-		// ÀÔ·Â
 		Scanner sc = new Scanner(System.in);
-		for (int i = 0; i < 9; i++) {
-			for (int j = 0; j < 9; j++) {
-				sudoku[i][j] = sc.nextInt();
-			}
-		}
-		sc.close();
-
-		// ºóÄ­ À§Ä¡ ÀúÀå
+		// ìž…ë ¥ê³¼ ë¹ˆì¹¸ ìœ„ì¹˜ ì €ìž¥
 		int key = 0;
 		for (int i = 0; i < 9; i++) {
 			for (int j = 0; j < 9; j++) {
+				sudoku[i][j] = sc.nextInt();
 				if (sudoku[i][j] == 0) {
 					blankMap.put(key++, new int[] { i, j });
 				}
 			}
 		}
+		sc.close();
+		
 		// dfs
 		solve(0);
 	}
@@ -49,11 +44,11 @@ public class SudokuSolver {
 
 	private static boolean isValid(int x, int y, int i) {
 		for (int n = 0; n < 9; n++) {
-			if (sudoku[x][n] == i) { // °¡·Î
+			if (sudoku[x][n] == i) { // ê°€ë¡œ
 				return false;
-			} else if (sudoku[n][y] == i) { // ¼¼·Î
+			} else if (sudoku[n][y] == i) { // ì„¸ë¡œ
 				return false;
-			} else if (sudoku[(x / 3) * 3 + n / 3][(y / 3) * 3 + n % 3] == i) { // 3*3Ä­
+			} else if (sudoku[(x / 3) * 3 + n / 3][(y / 3) * 3 + n % 3] == i) { // 3*3ì¹¸
 				return false;
 			}
 		}
@@ -64,13 +59,13 @@ public class SudokuSolver {
 		for (int i = 0; i < 9; i++) {
 			for (int j = 0; j < 9; j++) {
 				if (j > 0 && j % 3 == 0) {
-					System.out.print("¦¢");
+					System.out.print("â”‚");
 				}
 				System.out.print(sudoku[i][j] + " ");
 			}
 			if (i % 3 == 2 && i < 8) {
 				System.out.println();
-				System.out.print("¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡");
+				System.out.print("â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€");
 			}
 			System.out.println();
 		}
